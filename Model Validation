@@ -1,0 +1,1273 @@
+set.seed(20)
+sampled_indices <- sample(nrow(pop2), 500)
+sample51 <- pop2[sampled_indices, ]
+
+set.seed(333)
+sampled_indices <- sample(nrow(pop2), 500)
+sample52 <- pop2[sampled_indices, ]
+
+set.seed(12)
+sampled_indices <- sample(nrow(pop2), 500)
+sample53 <- pop2[sampled_indices, ]
+
+set.seed(123)
+sampled_indices <- sample(nrow(pop2), 500)
+sample54 <- pop2[sampled_indices, ]
+
+set.seed(87)
+sampled_indices <- sample(nrow(pop2), 500)
+sample55 <- pop2[sampled_indices, ]
+
+set.seed(45)
+sampled_indices <- sample(nrow(pop2), 500)
+sample56 <- pop2[sampled_indices, ]
+
+set.seed(67)
+sampled_indices <- sample(nrow(pop2), 500)
+sample57 <- pop2[sampled_indices, ]
+
+set.seed(444)
+sampled_indices <- sample(nrow(pop2), 500)
+sample58 <- pop2[sampled_indices, ]
+
+set.seed(678)
+sampled_indices <- sample(nrow(pop2), 500)
+sample59 <- pop2[sampled_indices, ]
+
+set.seed(789)
+sampled_indices <- sample(nrow(pop2), 500)
+sample50 <- pop2[sampled_indices, ]
+
+unit51 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample51,
+              smp_domains = "strata",
+              MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(0,1),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit51)
+write.excel(unit51, file = "unit51.xlsx", MSE = TRUE, CV = TRUE)
+
+unit52 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+                 + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+                 + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+                 pop_data = pop2, 
+                 pop_domains = "strata",
+                 smp_data = sample52,
+                 smp_domains = "strata",
+                 MSE = TRUE, L = 50, B = 50,
+                 transformation = "box.cox", interval = c(-10,10),
+                 seed = 15,
+                 boot_type = "wild") 
+
+summary(unit52) 
+write.excel(unit52, file = "unit52.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit53 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample53,
+               smp_domains = "strata",
+               threshold = 149.034, MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit53) ### not okay 
+write.excel(unit53, file = "unit53.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit54 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample54,
+              smp_domains = "strata",
+              MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(0,1),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit54) 
+write.excel(unit54, file = "unit54.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit55 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample55,
+               smp_domains = "strata",
+               threshold = 149.034, MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit55) 
+write.excel(unit55, file = "unit55.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit56 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample56,
+               smp_domains = "strata",
+               threshold = 149.034, MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit56) 
+write.excel(unit56, file = "unit56.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit57 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample57,
+               smp_domains = "strata",
+               MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit57) 
+write.excel(unit57, file = "unit57.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit58 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample58,
+               smp_domains = "strata",
+               MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit58) 
+write.excel(unit58, file = "unit58.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit59 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample59,
+               smp_domains = "strata",
+               MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit59) 
+write.excel(unit59, file = "unit59.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit50 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample50,
+               smp_domains = "strata",
+               MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit50) 
+write.excel(unit50, file = "unit50.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+### MODEL VALIDATION : AREA N = 500
+
+set.seed(1)
+sampled_indices <- sample(nrow(pop2), 500)
+sample51a <- pop2[sampled_indices, ]
+
+direct_emdi51a <- direct(y = "PY010G", smp_data = sample51a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi51a, file = "direct51a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(333)
+sampled_indices <- sample(nrow(pop2), 500)
+sample52a <- pop2[sampled_indices, ]
+
+direct_emdi52a <- direct(y = "PY010G", smp_data = sample52a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi52a, file = "direct52a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(12)
+sampled_indices <- sample(nrow(pop2), 500)
+sample53a <- pop2[sampled_indices, ]
+
+direct_emdi53a <- direct(y = "PY010G", smp_data = sample53a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi53a, file = "direct53a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(123)
+sampled_indices <- sample(nrow(pop2), 500)
+sample54a <- pop2[sampled_indices, ]
+
+direct_emdi54a <- direct(y = "PY010G", smp_data = sample54a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi54a, file = "direct54a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(87)
+sampled_indices <- sample(nrow(pop2), 500)
+sample55a <- pop2[sampled_indices, ]
+
+direct_emdi55a <- direct(y = "PY010G", smp_data = sample55a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi55a, file = "direct55a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(45)
+sampled_indices <- sample(nrow(pop2), 500)
+sample56a <- pop2[sampled_indices, ]
+
+direct_emdi56a <- direct(y = "PY010G", smp_data = sample56a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi56a, file = "direct56a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(67)
+sampled_indices <- sample(nrow(pop2), 500)
+sample57a <- pop2[sampled_indices, ]
+
+direct_emdi57a <- direct(y = "PY010G", smp_data = sample57a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi57a, file = "direct57a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(444)
+sampled_indices <- sample(nrow(pop2), 500)
+sample58a <- pop2[sampled_indices, ]
+
+direct_emdi58a <- direct(y = "PY010G", smp_data = sample58a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi58a, file = "direct58a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(678)
+sampled_indices <- sample(nrow(pop2), 500)
+sample59a <- pop2[sampled_indices, ]
+
+direct_emdi59a <- direct(y = "PY010G", smp_data = sample59a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi59a, file = "direct59a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(789)
+sampled_indices <- sample(nrow(pop2), 500)
+sample50a <- pop2[sampled_indices, ]
+
+direct_emdi50a <- direct(y = "PY010G", smp_data = sample50a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi50a, file = "direct_est_50a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+var_agg2 <- read_excel("~/Documents/var_agg_area.xlsx")
+var_agg2 <- left_join(var_agg2, x, by = 'domain')
+var_agg2 <- left_join(var_agg2, x2, by = 'domain')
+var_agg2 <- left_join(var_agg2, x3, by = 'domain')
+var_agg2 <- left_join(var_agg2, x4, by = 'domain')
+var_agg2 <- left_join(var_agg2, x5, by = 'domain')
+var_agg2 <- left_join(var_agg2, x6, by = 'domain')
+var_agg2 <- left_join(var_agg2, x7, by = 'domain')
+var_agg2 <- left_join(var_agg2, x8, by = 'domain')
+var_agg2 <- left_join(var_agg2, x9, by = 'domain')
+var_agg2 <- left_join(var_agg2, x10, by = 'domain')
+var_agg2 <- left_join(var_agg2, x11, by = 'domain')
+var_agg2 <- left_join(var_agg2, x12, by = 'domain')
+var_agg2 <- left_join(var_agg2, x13, by = 'domain')
+var_agg2 <- left_join(var_agg2, x14, by = 'domain')
+var_agg2 <- left_join(var_agg2, x15, by = 'domain')
+var_agg2 <- left_join(var_agg2, x16, by = 'domain')
+var_agg2 <- left_join(var_agg2, x17, by = 'domain')
+
+fh51 <- fh(fixed = Mean51 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var51',
+              method = 'ml', combined_data = var_agg2, domains = 'domain',
+              MSE = TRUE, mse_type = 'analytical',
+              B = c(50,5), seed = 123)
+
+summary(fh51)
+write.excel(fh51, file = "area51.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh52 <- fh(fixed = Mean52 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var52',
+              method = 'ml', combined_data = var_agg2, domains = 'domain',
+              MSE = TRUE, mse_type = 'analytical',
+              B = c(50,5), seed = 123)
+
+summary(fh52) 
+write.excel(fh52, file = "area52.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh53 <- fh(fixed = Mean53 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var53',
+              method = 'ml', combined_data = var_agg2, domains = 'domain',
+              MSE = TRUE, mse_type = 'analytical',
+              B = c(50,5), seed = 123)
+
+summary(fh53) 
+write.excel(fh53, file = "area53.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh54 <- fh(fixed = Mean54 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var54',
+              method = 'ml', combined_data = var_agg2, domains = 'domain',
+              MSE = TRUE, mse_type = 'analytical',
+              B = c(50,5), seed = 123)
+
+summary(fh54) 
+write.excel(fh54, file = "area54.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh55 <- fh(fixed = Mean55 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var55',
+              method = 'ml', combined_data = var_agg2, domains = 'domain',
+              MSE = TRUE, mse_type = 'analytical',
+              B = c(50,5), seed = 123)
+
+summary(fh55)
+write.excel(fh_1000, file = "area1000.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh56 <- fh(fixed = Mean56 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var56',
+              method = 'ml', combined_data = var_agg2, domains = 'domain',
+              MSE = TRUE, mse_type = 'analytical',
+              B = c(50,5), seed = 123)
+
+summary(fh56) 
+write.excel(fh56, file = "area56.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh57 <- fh(fixed = Mean57 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var57',
+              method = 'ml', combined_data = var_agg2, domains = 'domain',
+              MSE = TRUE, mse_type = 'analytical',
+              B = c(50,5), seed = 123)
+
+summary(fh57)
+write.excel(fh57, file = "area57.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh58 <- fh(fixed = Mean58 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var58',
+              method = 'ml', combined_data = var_agg2, domains = 'domain',
+              MSE = TRUE, mse_type = 'analytical',
+              B = c(50,5), seed = 123)
+
+summary(fh58) 
+write.excel(fh58, file = "area58.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh59 <- fh(fixed = Mean59 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var59',
+              method = 'ml', combined_data = var_agg2, domains = 'domain',
+              MSE = TRUE, mse_type = 'analytical',
+              B = c(50,5), seed = 123)
+
+summary(fh59)
+write.excel(fh59, file = "area59.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh50 <- fh(fixed = Mean50 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var60',
+              method = 'ml', combined_data = var_agg3, domains = 'domain',
+              MSE = TRUE, mse_type = 'analytical',
+              B = c(50,5), seed = 123)
+
+summary(fh50) 
+write.excel(fh50, file = "area50.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+############ n = 1000
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample510 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample520 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample530 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample540 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample550 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample560 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample570 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample580 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample590 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample600 <- pop2[sampled_indices, ]
+
+unit510 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample510,
+              smp_domains = "strata",
+              MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(0,1),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit510) 
+write.excel(unit510, file = "unit510.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit520 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample520,
+              smp_domains = "strata",
+              MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(-10,10),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit520)
+write.excel(unit520, file = "unit520.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+
+unit530 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample530,
+              smp_domains = "strata",
+              threshold = 149.034, MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(0,1),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit530) 
+write.excel(unit530, file = "unit530.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit540 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample540,
+              smp_domains = "strata",
+              MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(0,1),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit540) 
+write.excel(unit540, file = "unit540.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit550 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample550,
+              smp_domains = "strata",
+              threshold = 149.034, MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(0,1),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit550) 
+write.excel(unit550, file = "unit550.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit560 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample560,
+              smp_domains = "strata",
+              threshold = 149.034, MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(0,1),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit560) 
+write.excel(unit560, file = "unit560.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit570 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample57,
+              smp_domains = "strata",
+              MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(0,1),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit570) 
+write.excel(unit570, file = "unit570.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit580 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample580,
+              smp_domains = "strata",
+              MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(0,1),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit580)
+write.excel(unit580, file = "unit580.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit590 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample590,
+              smp_domains = "strata",
+              threshold = 149.034, MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(0,1),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit590)
+write.excel(unit590, file = "unit590.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit600 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+              pop_data = pop2, 
+              pop_domains = "strata",
+              smp_data = sample600,
+              smp_domains = "strata",
+              MSE = TRUE, L = 50, B = 50,
+              transformation = "box.cox", interval = c(0,1),
+              seed = 15,
+              boot_type = "wild") 
+
+summary(unit600) 
+write.excel(unit600, file = "unit600.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+
+### MODEL VALIDATION : AREA N = 1000
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample510a <- pop2[sampled_indices, ]
+
+direct_emdi510a <- direct(y = "PY010G", smp_data = sample510a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi510a, file = "direct510a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample520a <- pop2[sampled_indices, ]
+
+direct_emdi520a <- direct(y = "PY010G", smp_data = sample520a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi520a, file = "direct520a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample530a <- pop2[sampled_indices, ]
+
+direct_emdi530a <- direct(y = "PY010G", smp_data = sample530a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi50a, file = "direct530a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample540a <- pop2[sampled_indices, ]
+
+direct_emdi540a <- direct(y = "PY010G", smp_data = sample540a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi540a, file = "direct540a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample550a <- pop2[sampled_indices, ]
+
+direct_emdi550a <- direct(y = "PY010G", smp_data = sample550a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi550a, file = "direct550a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(1)
+sampled_indices <- sample(nrow(pop2), 1000)
+sample560a <- pop2[sampled_indices, ]
+
+direct_emdi560a <- direct(y = "PY010G", smp_data = sample560a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi560a, file = "direct560a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(8)
+sampled_indices <- sample(nrow(pop2), 1000)
+sample570a <- pop2[sampled_indices, ]
+direct_emdi570a <- direct(y = "PY010G", smp_data = sample570a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi570a, file = "direct570a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+sampled_indices <- sample(nrow(pop2), 1000)
+sample580a <- pop2[sampled_indices, ]
+
+set.seed(20)
+direct_emdi580a <- direct(y = "PY010G", smp_data = sample580a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi580a, file = "direct580a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(100)
+sampled_indices <- sample(nrow(pop2), 1000)
+sample590a <- pop2[sampled_indices, ]
+
+direct_emdi590a <- direct(y = "PY010G", smp_data = sample590a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi590a, file = "direct590a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(44)
+sampled_indices <- sample(nrow(pop2), 1000)
+sample600a <- pop2[sampled_indices, ]
+
+direct_emdi600a <- direct(y = "PY010G", smp_data = sample600a,
+                         smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi600a, file = "direct600a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+var_agg5 <- read_excel("~/Documents/varagg1000val.xlsx")
+var_agg5 <- left_join(var_agg5, x, by = 'domain')
+var_agg5 <- left_join(var_agg5, x2, by = 'domain')
+var_agg5 <- left_join(var_agg5, x3, by = 'domain')
+var_agg5 <- left_join(var_agg5, x4, by = 'domain')
+var_agg5 <- left_join(var_agg5, x5, by = 'domain')
+var_agg5 <- left_join(var_agg5, x6, by = 'domain')
+var_agg5 <- left_join(var_agg5, x7, by = 'domain')
+var_agg5 <- left_join(var_agg5, x8, by = 'domain')
+var_agg5 <- left_join(var_agg5, x9, by = 'domain')
+var_agg5 <- left_join(var_agg5, x10, by = 'domain')
+var_agg5 <- left_join(var_agg5, x11, by = 'domain')
+var_agg5 <- left_join(var_agg5, x12, by = 'domain')
+var_agg5 <- left_join(var_agg5, x13, by = 'domain')
+var_agg5 <- left_join(var_agg5, x14, by = 'domain')
+var_agg5 <- left_join(var_agg5, x15, by = 'domain')
+var_agg5 <- left_join(var_agg5, x16, by = 'domain')
+var_agg5 <- left_join(var_agg5, x17, by = 'domain')
+
+
+fh510 <- fh(fixed = Mean51 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+           + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+           + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var51',
+           method = 'ml', combined_data = var_agg5, domains = 'domain',
+           MSE = TRUE, mse_type = 'analytical',
+           B = c(50,5), seed = 123)
+
+summary(fh510)
+write.excel(fh510, file = "area510.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh520 <- fh(fixed = Mean52 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+           + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+           + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var52',
+           method = 'ml', combined_data = var_agg5, domains = 'domain',
+           MSE = TRUE, mse_type = 'analytical',
+           B = c(50,5), seed = 123)
+
+summary(fh520) 
+write.excel(fh520, file = "area520.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh530 <- fh(fixed = Mean53 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+           + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+           + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var53',
+           method = 'ml', combined_data = var_agg5, domains = 'domain',
+           MSE = TRUE, mse_type = 'analytical',
+           B = c(50,5), seed = 123)
+
+summary(fh530) 
+write.excel(fh530, file = "area530.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh540 <- fh(fixed = Mean54 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+           + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+           + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var54',
+           method = 'ml', combined_data = var_agg5, domains = 'domain',
+           MSE = TRUE, mse_type = 'analytical',
+           B = c(50,5), seed = 123)
+
+summary(fh540) 
+write.excel(fh540, file = "area540.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh550 <- fh(fixed = Mean55 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+           + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+           + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var55',
+           method = 'ml', combined_data = var_agg5, domains = 'domain',
+           MSE = TRUE, mse_type = 'analytical',
+           B = c(50,5), seed = 123)
+
+summary(fh550) 
+write.excel(fh550, file = "area550.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh560 <- fh(fixed = Mean56 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+           + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+           + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var56',
+           method = 'ml', combined_data = var_agg5, domains = 'domain',
+           MSE = TRUE, mse_type = 'analytical',
+           B = c(50,5), seed = 123)
+
+summary(fh560) 
+write.excel(fh560, file = "area560.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh570 <- fh(fixed = Mean57 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+           + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+           + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var57',
+           method = 'ml', combined_data = var_agg5, domains = 'domain',
+           MSE = TRUE, mse_type = 'analytical',
+           B = c(50,5), seed = 123)
+
+summary(fh570) 
+write.excel(fh570, file = "area570.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh580 <- fh(fixed = Mean58 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+           + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+           + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var58',
+           method = 'ml', combined_data = var_agg5, domains = 'domain',
+           MSE = TRUE, mse_type = 'analytical',
+           B = c(50,5), seed = 123)
+
+summary(fh580) 
+write.excel(fh580, file = "area580.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh590 <- fh(fixed = Mean59 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+           + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+           + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var59',
+           method = 'ml', combined_data = var_agg5, domains = 'domain',
+           MSE = TRUE, mse_type = 'analytical',
+           B = c(50,5), seed = 123)
+
+summary(fh590)
+write.excel(fh590, file = "area590.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh600 <- fh(fixed = Mean60 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+           + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+           + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var60',
+           method = 'ml', combined_data = var_agg5, domains = 'domain',
+           MSE = TRUE, mse_type = 'analytical',
+           B = c(50,5), seed = 123)
+
+summary(fh600) 
+write.excel(fh600, file = "area600.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+
+############ MODEL VALIDATION, UNIT n = 2000
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample512 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample522 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample532 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample542 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample552 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample562 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample572 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample582 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample592 <- pop2[sampled_indices, ]
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample602 <- pop2[sampled_indices, ]
+
+
+unit512 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample512,
+               smp_domains = "strata",
+               MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit512) 
+write.excel(unit512, file = "unit512.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit522 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample522,
+               smp_domains = "strata",
+               MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(-10,10),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit522) 
+write.excel(unit522, file = "unit522.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit532 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample532,
+               smp_domains = "strata",
+               threshold = 149.034, MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit532) 
+write.excel(unit532, file = "unit532.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit542 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample542,
+               smp_domains = "strata",
+               MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit542) 
+write.excel(unit542, file = "unit542.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit552 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample552,
+               smp_domains = "strata",
+               threshold = 149.034, MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit552) 
+write.excel(unit552, file = "unit552.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit562 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample562,
+               smp_domains = "strata",
+               threshold = 149.034, MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit562) 
+write.excel(unit562, file = "unit562.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit572 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample572,
+               smp_domains = "strata",
+               MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit572) 
+write.excel(unit572, file = "unit572.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit582 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample582,
+               smp_domains = "strata",
+               MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit582) 
+write.excel(unit582, file = "unit582.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit592 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample592,
+               smp_domains = "strata",
+               threshold = 149.034, MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit592) 
+write.excel(unit592, file = "unit592.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+unit602 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1,
+               pop_data = pop2, 
+               pop_domains = "strata",
+               smp_data = sample602,
+               smp_domains = "strata",
+               MSE = TRUE, L = 50, B = 50,
+               transformation = "box.cox", interval = c(0,1),
+               seed = 15,
+               boot_type = "wild") 
+
+summary(unit602) 
+write.excel(unit602, file = "unit602.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+
+### MODEL VALIDATION : AREA N = 2000
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample512a <- pop2[sampled_indices, ]
+
+direct_emdi512a <- direct(y = "PY010G", smp_data = sample512a,
+                          smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi512a, file = "direct512a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+sampled_indices <- sample(nrow(pop2), 2000)
+sample522a <- pop2[sampled_indices, ]
+
+direct_emdi522a <- direct(y = "PY010G", smp_data = sample522a,
+                          smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi522a, file = "direct522a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(33)
+sampled_indices <- sample(nrow(pop2), 2000)
+sample532a <- pop2[sampled_indices, ]
+
+direct_emdi532a <- direct(y = "PY010G", smp_data = sample532a,
+                          smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi532a, file = "direct532a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(111)
+sampled_indices <- sample(nrow(pop2), 2000)
+sample542a <- pop2[sampled_indices, ]
+
+direct_emdi542a <- direct(y = "PY010G", smp_data = sample542a,
+                          smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi542a, file = "direct542a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(222)
+sampled_indices <- sample(nrow(pop2), 2000)
+sample552a <- pop2[sampled_indices, ]
+
+direct_emdi552a <- direct(y = "PY010G", smp_data = sample552a,
+                          smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi552a, file = "direct552a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(1)
+sampled_indices <- sample(nrow(pop2), 2000)
+sample562a <- pop2[sampled_indices, ]
+
+direct_emdi562a <- direct(y = "PY010G", smp_data = sample562a,
+                          smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi562a, file = "direct562a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(8)
+sampled_indices <- sample(nrow(pop2), 2000)
+sample572a <- pop2[sampled_indices, ]
+direct_emdi572a <- direct(y = "PY010G", smp_data = sample572a,
+                          smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi572a, file = "direct572a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(3)
+sampled_indices <- sample(nrow(pop2), 2000)
+sample582a <- pop2[sampled_indices, ]
+
+direct_emdi582a <- direct(y = "PY010G", smp_data = sample582a,
+                          smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi582a, file = "direct582a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(100)
+sampled_indices <- sample(nrow(pop2), 2000)
+sample592a <- pop2[sampled_indices, ]
+
+direct_emdi592a <- direct(y = "PY010G", smp_data = sample592a,
+                          smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi592a, file = "direct592a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+set.seed(44)
+sampled_indices <- sample(nrow(pop2), 2000)
+sample602a <- pop2[sampled_indices, ]
+
+direct_emdi602a <- direct(y = "PY010G", smp_data = sample602a,
+                          smp_domains = "strata", threshold = NULL, var = TRUE)
+
+write.excel(direct_emdi602a, file = "direct602a.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+var_agg6 <- read_excel("~/Documents/varagg2000a.xlsx")
+var_agg6 <- left_join(var_agg6, x, by = 'domain')
+var_agg6 <- left_join(var_agg6, x2, by = 'domain')
+var_agg6 <- left_join(var_agg6, x3, by = 'domain')
+var_agg6 <- left_join(var_agg6, x4, by = 'domain')
+var_agg6 <- left_join(var_agg6, x5, by = 'domain')
+var_agg6 <- left_join(var_agg6, x6, by = 'domain')
+var_agg6 <- left_join(var_agg6, x7, by = 'domain')
+var_agg6 <- left_join(var_agg6, x8, by = 'domain')
+var_agg6 <- left_join(var_agg6, x9, by = 'domain')
+var_agg6 <- left_join(var_agg6, x10, by = 'domain')
+var_agg6 <- left_join(var_agg6, x11, by = 'domain')
+var_agg6 <- left_join(var_agg6, x12, by = 'domain')
+var_agg6 <- left_join(var_agg6, x13, by = 'domain')
+var_agg6 <- left_join(var_agg6, x14, by = 'domain')
+var_agg6 <- left_join(var_agg6, x15, by = 'domain')
+var_agg6 <- left_join(var_agg6, x16, by = 'domain')
+var_agg6 <- left_join(var_agg6, x17, by = 'domain')
+
+
+fh512 <- fh(fixed = Mean51 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+            + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+            + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var51',
+            method = 'ml', combined_data = var_agg6, domains = 'domain',
+            MSE = TRUE, mse_type = 'analytical',
+            B = c(50,5), seed = 123)
+
+summary(fh512)
+write.excel(fh512, file = "area512.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh522 <- fh(fixed = Mean52 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+            + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+            + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var52',
+            method = 'ml', combined_data = var_agg6, domains = 'domain',
+            MSE = TRUE, mse_type = 'analytical',
+            B = c(50,5), seed = 123)
+
+summary(fh522) 
+write.excel(fh522, file = "area522.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh532 <- fh(fixed = Mean53 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+            + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+            + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var53',
+            method = 'ml', combined_data = var_agg6, domains = 'domain',
+            MSE = TRUE, mse_type = 'analytical',
+            B = c(50,5), seed = 123)
+
+summary(fh532)
+write.excel(fh532, file = "area532.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh542 <- fh(fixed = Mean54 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+            + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+            + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var54',
+            method = 'ml', combined_data = var_agg6, domains = 'domain',
+            MSE = TRUE, mse_type = 'analytical',
+            B = c(50,5), seed = 123)
+
+summary(fh542) 
+write.excel(fh542, file = "area542.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh552 <- fh(fixed = Mean55 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+            + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+            + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var55',
+            method = 'ml', combined_data = var_agg6, domains = 'domain',
+            MSE = TRUE, mse_type = 'analytical',
+            B = c(50,5), seed = 123)
+
+summary(fh552) 
+write.excel(fh552, file = "area552.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh562 <- fh(fixed = Mean56 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+            + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+            + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var56',
+            method = 'ml', combined_data = var_agg6, domains = 'domain',
+            MSE = TRUE, mse_type = 'analytical',
+            B = c(50,5), seed = 123)
+
+summary(fh562) 
+write.excel(fh562, file = "area562.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh572 <- fh(fixed = Mean57 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+            + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+            + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var57',
+            method = 'ml', combined_data = var_agg6, domains = 'domain',
+            MSE = TRUE, mse_type = 'analytical',
+            B = c(50,5), seed = 123)
+
+summary(fh572) 
+write.excel(fh572, file = "area572.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh582 <- fh(fixed = Mean58 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+            + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+            + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var58',
+            method = 'ml', combined_data = var_agg6, domains = 'domain',
+            MSE = TRUE, mse_type = 'analytical',
+            B = c(50,5), seed = 123)
+
+summary(fh582) 
+write.excel(fh582, file = "area582.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh592 <- fh(fixed = Mean59 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+            + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+            + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var59',
+            method = 'ml', combined_data = var_agg6, domains = 'domain',
+            MSE = TRUE, mse_type = 'analytical',
+            B = c(50,5), seed = 123)
+
+summary(fh592)
+write.excel(fh592, file = "area592.xlsx",
+            MSE = TRUE, CV = TRUE)
+
+fh602 <- fh(fixed = Mean60 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+            + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+            + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var60',
+            method = 'ml', combined_data = var_agg6, domains = 'domain',
+            MSE = TRUE, mse_type = 'analytical',
+            B = c(50,5), seed = 123)
+
+summary(fh602) 
+write.excel(fh602, file = "area602.xlsx",
+            MSE = TRUE, CV = TRUE)
