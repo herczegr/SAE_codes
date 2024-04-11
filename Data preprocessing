@@ -1,0 +1,82 @@
+# This section includes all the variable transformations needed to execute before model fitting. It includes t
+Variable transformation
+
+pop <- pop %>%
+  mutate(age_group = case_when(1991 <= birth_year ~ '16-25',
+                               1990 >= birth_year & birth_year >= 1981 ~ '26-35',
+                               1980 >= birth_year & birth_year >= 1971 ~ '36-45',
+                               1970 >= birth_year & birth_year >= 1961 ~ '46-55',
+                               1960 >= birth_year & birth_year >= 1951 ~ '56-65',
+                               1950 >= birth_year & birth_year >= 1941 ~ '66-75',
+                               1940 >= birth_year ~ '75+'
+  ))
+
+pop <- pop %>% 
+  mutate(highest_edu=recode(highest_edu, '344'='300', '353'='300', '354'='300','450'='400',
+                            '0'='0','100'='100','200'='200','300'='300','400'='400','500'='500'))
+
+ # aggregating by domains 
+
+pop <- pop %>%
+  mutate(strata = case_when(1991 <= birth_year & highest_edu == 0 ~ '10',
+                            1991 <= birth_year & highest_edu == 100 ~ '11',
+                            1991 <= birth_year & highest_edu == 200 ~ '12',
+                            1991 <= birth_year & highest_edu == 300 ~ '13',
+                            1991 <= birth_year & highest_edu == 400 ~ '14',
+                            1991 <= birth_year & highest_edu == 500 ~ '15',
+                      
+                            1990 >= birth_year & birth_year >= 1981 & highest_edu == 0 ~ '20',
+                            1990 >= birth_year & birth_year >= 1981 & highest_edu == 100 ~ '21',
+                            1990 >= birth_year & birth_year >= 1981 & highest_edu == 200 ~ '22',
+                            1990 >= birth_year & birth_year >= 1981 & highest_edu == 300 ~ '23',
+                            1990 >= birth_year & birth_year >= 1981 & highest_edu == 400 ~ '24',
+                            1990 >= birth_year & birth_year >= 1981 & highest_edu == 500 ~ '25',
+                          
+                            1980 >= birth_year & birth_year >= 1971 & highest_edu == 0 ~ '30',
+                            1980 >= birth_year & birth_year >= 1971 & highest_edu == 100 ~ '31',
+                            1980 >= birth_year & birth_year >= 1971 & highest_edu == 200 ~ '32',
+                            1980 >= birth_year & birth_year >= 1971 & highest_edu == 300 ~ '33',
+                            1980 >= birth_year & birth_year >= 1971 & highest_edu == 400 ~ '34',
+                            1980 >= birth_year & birth_year >= 1971 & highest_edu == 500 ~ '35',
+                            
+                            1970 >= birth_year & birth_year >= 1961 & highest_edu == 0 ~ '40',
+                            1970 >= birth_year & birth_year >= 1961 & highest_edu == 100 ~ '41',
+                            1970 >= birth_year & birth_year >= 1961 & highest_edu == 200 ~ '42',
+                            1970 >= birth_year & birth_year >= 1961 & highest_edu == 300 ~ '43',
+                            1970 >= birth_year & birth_year >= 1961 & highest_edu == 400 ~ '44',
+                            1970 >= birth_year & birth_year >= 1961 & highest_edu == 500 ~ '45',
+                            
+                            1960 >= birth_year & birth_year >= 1951 & highest_edu == 0 ~ '50',
+                            1960 >= birth_year & birth_year >= 1951 & highest_edu == 100 ~ '51',
+                            1960 >= birth_year & birth_year >= 1951 & highest_edu == 200 ~ '52',
+                            1960 >= birth_year & birth_year >= 1951 & highest_edu == 300 ~ '53',
+                            1960 >= birth_year & birth_year >= 1951 & highest_edu == 400 ~ '54',
+                            1960 >= birth_year & birth_year >= 1951 & highest_edu == 500 ~ '55',
+                            
+                            1950 >= birth_year & birth_year >= 1941 & highest_edu == 0 ~ '60',
+                            1950 >= birth_year & birth_year >= 1941 & highest_edu == 100 ~ '61',
+                            1950 >= birth_year & birth_year >= 1941 & highest_edu == 200 ~ '62',
+                            1950 >= birth_year & birth_year >= 1941 & highest_edu == 300 ~ '63',
+                            1950 >= birth_year & birth_year >= 1941 & highest_edu == 400 ~ '64',
+                            1950 >= birth_year & birth_year >= 1941 & highest_edu == 500 ~ '65',
+                            
+                            1940 >= birth_year & highest_edu == 0 ~ '70',
+                            1940 >= birth_year & highest_edu == 100 ~ '71',
+                            1940 >= birth_year & highest_edu == 200 ~ '72',
+                            1940 >= birth_year & highest_edu == 300 ~ '73',
+                            1940 >= birth_year & highest_edu == 400 ~ '74',
+                            1940 >= birth_year & highest_edu == 500 ~ '75',
+                           
+  ))
+
+# imputing gross personal income
+
+means <- aggregate(pop2$PY010G, list(pop2$strata), FUN=mean) 
+colnames(means) <- c('strata', 'means')
+
+# dummy variables 
+
+pop2 <- dummy_cols(pop2, 
+                    select_columns = c("PB150","PL031","PH030", "PL015"))
+
+
