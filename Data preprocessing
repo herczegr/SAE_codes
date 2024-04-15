@@ -1,5 +1,4 @@
-# This section includes all the variable transformations needed to execute before model fitting. It includes t
-Variable transformation
+# This section includes all the variable transformations needed to execute before model fitting, including the creation of domains
 
 pop <- pop %>%
   mutate(age_group = case_when(1991 <= birth_year ~ '16-25',
