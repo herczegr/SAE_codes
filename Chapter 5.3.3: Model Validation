@@ -1,3 +1,5 @@
+# Unit level (n=500)
+
 set.seed(20)
 sampled_indices <- sample(nrow(pop2), 500)
 sample51 <- pop2[sampled_indices, ]
