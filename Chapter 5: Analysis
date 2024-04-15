@@ -1,4 +1,4 @@
-# 5 ANALYSIS
+# Chapter 5: ANALYSIS
 # Here can be found all the codes I used in my analysis, labelled and ordered according to the analysis chapter.
 # For the analysis I relied on the emdi package: https://github.com/SoerenPannier/emdi/tree/master
 
@@ -155,8 +155,6 @@ write.excel(unit2000_2, file = "unit2000_2.xlsx", MSE = TRUE, CV = TRUE)
 
 ############ AREA-LEVEL MODEL #############
 
-# a populációs változókat aggregálni 
-
 x <- aggregate(pop2$PL060, list(pop2$strata), FUN=mean)
 colnames(x) <- c('domain', 'PL060')
 x2 <- aggregate(pop2$PL200, list(pop2$strata), FUN=mean)
@@ -243,8 +241,8 @@ write.excel(fh_1000, file = "area1000.xlsx", MSE = TRUE, CV = TRUE)
 fh_2000 <- fh(fixed = smp_2000 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
               + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
               + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var_2000',
-              method = 'eblup', combined_data = var_agg, domains = 'domain',
-              MSE = TRUE, mse_type = 'boot',
+              method = 'ml', combined_data = var_agg, domains = 'domain',
+              MSE = TRUE, mse_type = 'analytical',
               B = c(50,5), seed = 123)
 
 summary(fh_2000) 
@@ -259,16 +257,32 @@ write.excel(fh_2000, file = "area2000_w.xlsx",MSE = TRUE, CV = TRUE)
 fh_500 <- fh(fixed = smp_500 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var_500',
-             method = 'ml', combined_data = var_agg, domains = 'domain',
+             method = 'eblup', combined_data = var_agg, domains = 'domain',
              MSE = TRUE, mse_type = 'boot',
              B = c(200,5), seed = 123)
 
 summary(fh_500) 
+write.excel(fh_500, file = "area500.xlsx", MSE = TRUE, CV = TRUE)
 
+fh_1000 <- fh(fixed = smp_1000 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+             + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+             + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var_1000',
+             method = 'eblup', combined_data = var_agg, domains = 'domain',
+             MSE = TRUE, mse_type = 'boot',
+             B = c(200,5), seed = 123)
 
+summary(fh_1000) 
+write.excel(fh_1000, file = "area1000.xlsx", MSE = TRUE, CV = TRUE)
 
+fh_2000 <- fh(fixed = smp_2000 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var_2000',
+              method = 'eblup', combined_data = var_agg, domains = 'domain',
+              MSE = TRUE, mse_type = 'boot',
+              B = c(200,5), seed = 123)
 
-
+summary(fh_2000) 
+write.excel(fh_2000, file = "area2000_w.xlsx",MSE = TRUE, CV = TRUE)
 
 
 
