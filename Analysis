@@ -1,8 +1,8 @@
 # 5 ANALYSIS
-# here you will find all the codes I used in my analysis, labelled and ordered according to the analysis chapter.
-# For the analysis I relied on the emdi package: 
+# Here can be found all the codes I used in my analysis, labelled and ordered according to the analysis chapter.
+# For the analysis I relied on the emdi package: https://github.com/SoerenPannier/emdi/tree/master
 
-######## Sampling n = 500, n = 1000, n = 2000
+# Sampling n = 500, n = 1000, n = 2000
 
 set.seed(15)
 sampled_indices <- sample(nrow(pop2), 500)
@@ -16,7 +16,7 @@ set.seed(19)
 sampled_indices <- sample(nrow(pop2), 2000)
 sample2000 <- pop2[sampled_indices, ]
 
-######### Direct Estimation 
+######### DIRECT ESTIMATION ##########
 
 direct_emdi <- direct(y = "PY010G", smp_data = pop2,
                       smp_domains = "strata", threshold = NULL, var = TRUE)
@@ -42,7 +42,7 @@ direct_emdi2000 <- direct(y = "PY010G", smp_data = sample2000,
 write.excel(direct_emdi2000, file = "direct_est_2000.xlsx",
             MSE = TRUE, CV = TRUE)
 
-######### Unit-level Model 
+######### UNIT-LEVEL MODEL ##############
 
 unit500 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
                 + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
@@ -106,7 +106,7 @@ compare_plot(unit2000, direct_emdi2000, color = c("darkblue", "darkred"), indica
 write.excel(unit2000, file = "unit2000.xlsx",
             MSE = TRUE, CV = TRUE)
 
-########### B = 200
+########### B = 200 ##############
 
 unit500_2 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
                + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
@@ -153,7 +153,7 @@ unit2000_2 <- ebp(fixed = PY010G ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031
 summary(unit2000_2) 
 write.excel(unit2000_2, file = "unit2000_2.xlsx", MSE = TRUE, CV = TRUE)
 
-############ AREA-LEVEL MODEL 
+############ AREA-LEVEL MODEL #############
 
 # a populációs változókat aggregálni 
 
@@ -226,7 +226,6 @@ compare_plot(fh_500, direct_emdi500, color = c("darkblue", "darkred"))
 
 write.excel(fh_500, file = "area500.xlsx", MSE = TRUE, CV = TRUE)
 
-
 fh_1000 <- fh(fixed = smp_1000 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
              + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
              + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var_1000',
@@ -255,9 +254,16 @@ compare_plot(fh_2000, direct_emdi2000, color = c("darkblue", "darkred"))
 
 write.excel(fh_2000, file = "area2000_w.xlsx",MSE = TRUE, CV = TRUE)
 
+########## B = 200 ############
 
+fh_500 <- fh(fixed = smp_500 ~ PB150_1 + PL031_1 + PL031_2 + PL031_3 + PL031_4 
+             + PL031_5 + PL031_6 + PL031_7 + PL031_8 + PL031_10 
+             + PH030_1 + PH030_2 + PL200 + PL060 + PL015_1, vardir = 'var_500',
+             method = 'ml', combined_data = var_agg, domains = 'domain',
+             MSE = TRUE, mse_type = 'boot',
+             B = c(200,5), seed = 123)
 
-
+summary(fh_500) 
 
 
 
